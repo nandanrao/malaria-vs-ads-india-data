@@ -8,73 +8,73 @@ library(sandwich)
 library(lmtest)
 
 
-source('./utils.R')
+source("./utils.R")
+source("./formatting.R")
 
 #######################################################################
 ## Formatting data
 #######################################################################
 
-binary_cols <- list(
-    bin_conf("malaria4months", "Yes"),
-    bin_conf("seekhelpfever", "Yes"),
-    bin_conf("fever4months", "Yes"),
-    bin_conf("dwelling", "Kutcha (made of mud, tin, straw)", "kutcha"),
-    bin_conf("dwelling", "Pucca (have cement/brick wall and floor", "pucca"),
-    bin_conf("education", "University degree or higher", "university"),
-    bin_conf("occupation", "Unemployed", "unemployed"),
-    bin_conf("gender", "Female", "female"),
-    bin_conf("timeseekhelpfever", "Less than 24 hours", "feverquickhelp"),
-    bin_conf("timeseekhelpfever", "More than 2 days", "feverslowhelp"),
-    bin_conf("timeseekhelpmalaria", "Less than 24 hours", "malariaquickhelp"),
-    bin_conf("timeseekhelpmalaria", "More than 2 days", "malariaslowhelp")
+xsection <- read_csv("data/final/regression-data/xsection.csv") %>%
+    binarize(binary_confs) %>%
+    deal_with_numbers() %>%
+    filter(!is.na(dwelling)) %>%
+    filter(answer_time_90 / answer_time_min >= 1.5) %>%
+    filter(invalid_answer_count <= 20) %>%
+    filter(age < 90 & age > 17 & familymembers < 30) %>%
+    mutate(across(c(
+        "cluster_population",
+        "cluster_CPM",
+        "cluster_CTR",
+    ), ~ scale(log(.x))))
+
+
+hadfever <- filter(xsection, !is.na(seekhelpfever))
+sought_help <- filter(xsection, seekhelpfever == TRUE)
+sought_help_malaria <- filter(xsection, testmalaria == TRUE)
+
+controls <- c(
+    "generalcaste",
+    "female",
+    "student",
+    "pregnantwoman",
 )
 
-df <- read_csv('data/final/regression-data/xsection.csv') %>%
-    binarize(binary_cols) %>%
-    filter(!is.na(dwelling)) %>% # didn't finish the survey
-    filter(answer_time_90 / answer_time_min >= 1.5) %>% # consistently answer fast
-    filter(invalid_answer_count <= 20) %>% # spamming
-    replace_cols(parse_numbers, c('age', 'familymembers')) %>%
-    filter(age < 90 & familymembers < 30) %>% # remove users with bad ages/familymember amounts
-    replace_cols(scale, c('cluster_population', 'cluster_CPM', 'cluster_CTR', 'age', 'familymembers')) # scale number columns for algo
-
-
-hadfever <- filter(df, !is.na(seekhelpfever))
-sought_help <- filter(df, seekhelpfever == TRUE)
-sought_help_malaria <- filter(df, testmalaria == TRUE)
-
-controls <- c('university', 'unemployed', 'cluster_population', 'cluster_CPM', 'cluster_malaria5year', 'cluster_CTR', 'female')
-
 specs <- list(
-    c('treatment'),
-    c('treatment*kutcha'),
-    c('treatment*pucca'),
-    c('treatment*pucca', controls)
+    c("treatment", controls),
+    c("treatment*kutcha", "treatment*pucca"),
+    c("treatment*pucca"),
+    c("treatment*pucca", controls)
 )
 
 #######################################################################
 ## Logistic Random Effects Model
 #######################################################################
-me_models <- list(
-    lapply(specs, partial(mixed_effects, hadfever, 'seekhelpfever')),
-    lapply(specs, partial(mixed_effects, df, 'malaria4months')),
-    lapply(specs, partial(mixed_effects, df, 'fever4months'))
+me_models <- c(
+    lapply(specs, partial(mixed_effects, hadfever, "seekhelpfever")),
+    lapply(specs, partial(mixed_effects, xsection, "malaria4months")),
+    lapply(specs, partial(mixed_effects, xsection, "fever4months"))
 )
 
-me_models
+
+lapply(me_models, summary)
+
 
 for (outcome in me_models) {
     stargazer(outcome)
 }
 
 
+# TODO: POOL seekhelpfever with panel...
+
+
 #######################################################################
 ## Logistic Regression with Clustered Standard Errors
 #######################################################################
 logreg_models <- list(
-    lapply(specs, partial(logistic_regression, hadfever, 'seekhelpfever')),
-    lapply(specs, partial(logistic_regression, df, 'malaria4months')),
-    lapply(specs, partial(logistic_regression, df, 'fever4months'))
+    lapply(specs, partial(logistic_regression, hadfever, "seekhelpfever")),
+    lapply(specs, partial(logistic_regression, xsection, "malaria4months")),
+    lapply(specs, partial(logistic_regression, xsection, "fever4months"))
 )
 
 logreg_models
