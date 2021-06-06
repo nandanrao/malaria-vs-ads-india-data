@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "malaria-no-more-ie-data"
+version = "0.1.0"
+description = ""
+authors = ["Nandan Rao <nandanmarkrao@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+requests = "^2.25.1"
+pandas = "^1.2.4"
+toolz = "^0.11.1"
+psycopg2-binary = "^2.8.6"
+orjson = "^3.5.2"
+vlab-prepro = "^0.3.1"
+geopandas = "^0.9.0"
+Shapely = "^1.7.1"
+xxhash = "^2.0.2"
+
+[tool.poetry.dev-dependencies]
+python-language-server = {extras = ["all"], version = "^0.36.2"}
+pyls-black = "^0.4.6"
+pyls-isort = "^0.2.0"
+future = "^0.18.2"
+pylint = "^2.8.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
