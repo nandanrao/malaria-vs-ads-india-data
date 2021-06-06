@@ -168,13 +168,11 @@ ind_controls <- c(
 )
 
 
-
 ind_specs <- list(
     c("treatment*pucca + semipucca + ind_treatment", ind_controls),
     c("ind_treatment"),
     c("ind_treatment + treatment + pucca + semipucca", ind_controls),
     c("ind_treatment*treatment", ind_controls),
-    c("ind_treatment*pucca + treatment + semipucca"),
     c("ind_treatment*pucca + treatment + semipucca", ind_controls),
     c("ind_treatment + treatment", "admalaria", ind_controls)
 )
@@ -203,7 +201,7 @@ for (name in names(ind_outcomes)) {
         flatten(ind_outcomes[[name]]),
         name,
         add.lines = lines,
-        omit = c(ind_controls),
+        omit = c("Constant", ind_controls),
         dep.var.caption = name,
         dep.var.labels = names(ind_outcomes[[name]])
     )

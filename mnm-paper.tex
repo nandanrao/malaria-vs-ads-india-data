@@ -4,7 +4,6 @@
 \addbibresource{./bibs/digital-ads.bib}
 \addbibresource{./bibs/extra.bib}
 
-
 \usepackage{amsmath, amsthm, amsfonts, mathtools, csquotes, bm, centernot, bbm, multirow, rotating, geometry}
 \usepackage[toc,page]{appendix}
 \usepackage{booktabs}
@@ -12,22 +11,11 @@
 
 \geometry{a4paper, margin=2.5cm}
 
-\theoremstyle{proposition}
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{prop}{Proposition}
-
-\usepackage{pgf, tikz}
-\usetikzlibrary{arrows, automata}
-
-\DeclareMathOperator*{\argmax}{argmax}
-\DeclareMathOperator*{\argmin}{argmin}
-
 \title{Facebook Ads vs. Malaria: A Cluster-Randomized Trial in India}
 
 \begin{document}
-
 \maketitle
- 
+
 \begin{abstract}
 We conduct a cluster-randomized trial on Facebook to measure the effectiveness of a social-media campaign on several self-reported outcomes of interest in the fight against malaria: preventative behaviors, treatment-seeking behaviors, and incidence of fever and malaria. We additionally nest an individually-randomized trial, utilizing the remarketing tools of the ad platform, to test the direct effect of advertising on individual behavior.
 
@@ -43,7 +31,7 @@ The results provide evidence of an increased use of mosquito nets due to treatme
 
 \section{Introduction}
 
-A common concern about using social media campaigns for development outcomes is the lack of equity inherent in the audience. Social media reaches those who are connected to the internet, those who have smartphones, those who have money. The poorest and most at risk are thus potentially less effectively reached by interventions that rely on smart phones and internet connections when compared to richer, more urban populations \cite{ref}.
+A common concern about using social media campaigns for development outcomes is the lack of equity inherent in the audience. Social media reaches those who are connected to the internet, those who have smartphones, those who have money. The poorest and most at risk are thus potentially less effectively reached by interventions that rely on smart phones and internet connections when compared to richer, more urban populations.
 
 Digital advertising, unlike traditional advertising media, provides the ability to microtarget messages to specific segments of the population, even if that segment is very small. This ability, however, is not all-powerful: certain segments of the population are easier to target than others and targeting might be difficult, requiring advanced knowledge and techniques.
 
@@ -53,7 +41,7 @@ Thus, digital advertising (and social media advertising in particular) present b
 
 We evaluate a Facebook ad campaign run by a public health non-profit (Malaria No More) with the help of a social media marketing consulting firm (Upswell) and funded by Facebook's Campaigns for a Healthier World initiative. We recruit a group of survey respondents and work directly with the advertising team to randomize application of the campaign by geography, dividing our respondents into control and treatment groups clustered at district level. We estimate the impacts of the campaign on a set of self-reported attitudes, behaviors, and medical outcomes as measured by the survey.
 
-Malaria is a disease which disporportionately effects people in poor, rural areas (\cite{ref}). In order to evaluate the impact of a social media campaign on malaria behaviors, attitudes, and incidence, it is therefore important to evaluate the impact specifically on populations that are at high risk for malaria. We analyze our initial baseline survey data to find predictors of malaria risk and find that dwelling type (i.e. concrete vs. mud/straw) is correlated with malaria incidence, in line with previous work in India (\cite{ref}).
+Malaria is a disease which disporportionately effects people in poor, rural areas in India (\cite{Dev2004}). In order to evaluate the impact of a social media campaign on malaria behaviors, attitudes, and incidence, it is therefore important to evaluate the impact specifically on populations that are at high risk for malaria. We analyze our initial baseline survey data to find predictors of malaria risk and find that dwelling type (i.e.\ concrete vs.\ mud/straw) is correlated with malaria incidence, in line with previous work in India (\cite{Sharma2015}).
 
 We recruit survey respondents directly on Facebook via advertisements, where we offer mobile credit as an incentive to fill out survey. We find that in our initial recruitment, those living in permanent/concrete (pucca) dwellings make up the majority of respondents and those living in less-permanent/non-concrete (kutcha) dwellings were less likely to join our survey.
 
@@ -70,26 +58,38 @@ We conclude that the ad material itself is effective at motivating people to tak
 
 \section{Background and Contribution}
 
-\paragraph{Social media and digital ad campaigns as development tools.} Something something something.
+\paragraph{Ad campaigns for public health outcomes in low- and middle-income countries.} There is some evidence that public health related ad campaigns in LMICs can shape opinions and behaviors in reproductive health (\cite{Agha2012}), attitudes towards smoking laws (\cite{Alday2010}), and preventative behaviors related to cancer screening (\cite{Wichachai2016}). However, the evidence is limited and to the best of our knowledge none evaluate social media campaigns (for a comprehensive review of social marketing studies in LMICs, see \cite{Schmidtke2021}).
+
+Bannor et. al.\ conducted surveys of 150 members of the general public in Ghana and asked them questions about social media usage and health-related messages (\cite{Bannor2017}). Their findings emphasize the importance of social media as an avenue for communication: 79\% of respondents said they had recieved health-related messages on Facebook and 67\% reported that they took health-related messages found on social media seriously.
+
+In high-income countries, digital and social media campaigns have been researched and shown effective in changing behavior in areas such as substance abuse (\cite{Evans2020}). Traditional media (television/print) campaigns have been tested in cluster-randomized trials and shown effective for public health outcomes such as the prevention of childhood obesity (\cite{Croker2012}).
+
+% TODO: add something about malaria! Different interventions, impacts, etc.
+
+This is the first study, to our knowledge, showing the effect of a digital ad campaign on malaria-related outcomes and provides substantive evidence that this messaging channel can be an important tool in fighting malaria and similar diseases by promoting preventative behavior.
 
 
-\paragraph{Measuring the impact of an ad.} Testing the impacts of digital ad campaigns is well understood in the context of driving ``on-platform'' results (users interact with your Facebook page). Similarly, many tools exist for connecting ad exposure to ``off-platform'' results when ``off-platform'' is restricted to results that take place on a platform or place controlled by the advertiser (i.e.\ their store or their website). Major advertising platforms, such as Facebook and Google, offer libraries that advertisers can add to their website (SDKs) that send events from their website back to the advertising platform. This allows the advertisers website to function as an extension of the ad platform, with all the data being consolidated inside the ad platform which then offers tools to analyze and run experiments.
+\paragraph{Evaluating behavior change in social media social marketing campaigns}
 
-By their nature, the data is thus restricted to users who engage with the properties of the advertiser in some fashion, either on or off-platform. This is useful for any enterprise in which engagement is the goal or a prerequisite to the goal. In public health, however, the goal is often not to get people to engage with the advertising entity but, rather, to change their beliefs, attitudes, and behaviors in the real world.
+Social marketing focuses on the use of marketing tools for behavioral change (\cite{Andreasen1994}). Despite this focus on behavior change, however, evaluating social media social marketing campaigns has been, to our knowledge entirely, restricted to evaluating engagement metrics (\cite{Shawky2019}) and very little has been done to run experiments on the impact of social media campaigns on behavioral change.
 
-The exception that proves the rule for the tools offered directly on advertiser platforms are Brand Lift Studies. These studies allow advertisers to embed a short survey into the ad platform. The survey is shown both to those who have seen their ads and those who haven't and the difference reported. The format is restricted to a couple of questions, microdata is not provided for analysis, and it's made explicit that the entity asking question is the advertiser themselves. That being said, it is a powerful tool that can certainly be useful to researchers in this space.
+In order to understand this gap, it can help to understand how digital marketing tools work in general and why engagement has become the de facto standard. Ad platforms provide tools for measuring both ``on-platform'' results (users interact with your Facebook page) as well as ``off-platform'' results that take place on a platform or place controlled by the advertiser (i.e.\ their store or their website). Major advertising platforms, such as Facebook and Google, offer libraries that advertisers can add to their website (SDKs) that send events from their website back to the advertising platform. This allows the advertisers website to function as an extension of the ad platform, with all the data being consolidated inside the ad platform which then offers tools to analyze and run experiments.
 
-To get around the limitations in measurement provided by the ad platforms, many researchers perform ``lab'' experiments to test the effect of campaign content on attitudes of viewers. For example, respondents might be recruited to join a survey which they take on Qualtrics, where they are shown content within the survey itself, as a proxy for seeing content on a social media timeline, but invited to share it on their Facebook profile (\cite{Henry2020}). Similarly, public relations research companies, such as Ipsos, offer a pool of paid respondents who use their platform, which tracks their actions, and can browse real websites such as YouTube and be shown real ads (\cite{Evans2021}). While these examples show convincing results and have the advantage of full control and rich data about participant actions, they have the disadvantage of the intervention being delivered to users during their active and conscious participation in a study.
+By their nature, the data is thus restricted to users who engage with the properties of the advertiser in some fashion, either on or off-platform. This is useful for any enterprise in which engagement is the goal or a prerequisite to the goal. The exception that proves the rule for the tools offered directly on advertiser platforms are Brand Lift Studies. These studies allow advertisers to embed a short survey into the ad platform. The survey is shown both to those who have seen their ads and those who haven't and the difference reported. The format is restricted to a couple of questions, microdata is not provided for analysis, and it's made explicit that the entity asking question is the advertiser themselves. That being said, it is a powerful tool that can certainly be useful to researchers in this space.
 
-We contribute to this literature by offering a design for an individually-randomized study where the treatment is delivered to survey respondents via remarketing\footnote{Remarketing is a tool offered by the major ad platforms by which an ad campaign can be run to a group of individuals who have previously interacted with the advertiser in some way. With the current deprecation of 3rd-party cookies, this implies either that the individual has come directly from an ad to a platform run by the advertiser or that the individual has shared either personally identifying data or directly connected their account (i.e.\ their Facebook or Google account) with the advertiser.}. This implies that the ads show up in participants' real news feed, bidding in real ad auctions and mixed with other real ads, advertised by an entity that has no apparent connection to the surveying entity itself. To our knowledge, this is the first example of this design in the literature and we believe it can be useful. Additionally, we offer an open source software tool, Virtual Lab, which can be used to facilitate such a study design.
+In social marketing, the end goal is not necessarily to get people to engage with the advertising entity but, rather, to change their beliefs, attitudes, and behaviors in the real world. While engagement can be a means to this end, the end in itself (behavior change) needs to be evaluated as well.
+
+%% TODO: these references are pretty random, find the best ones...
+To get around the limitations in measurement provided by the ad platforms, many researchers perform ``lab'' experiments to test the effect of campaign content on attitudes of viewers. For example, respondents might be recruited to join a survey which they take on a survey platform, where they are shown content within the survey itself, as a proxy for seeing content on a social media timeline (\cite{Henry2020,Donati2020}). Similarly, public relations / market research companies offer a pool of paid respondents and a series of tools to show ads to these respondants (including in realistic settings) and ask them questions afterwards (\cite{Evans2021}) or to create a pool of general respondents for quasi-experimental designs (\cite{Sampogna2017}). While these examples show convincing results and have the advantage of full control and rich data about participant actions, they have the disadvantage of the intervention being delivered to users during their active and conscious participation in a study.
+
+We contribute to this literature by offering a design for an individually-randomized study where the treatment is delivered to survey respondents via remarketing\footnote{Remarketing is a tool offered by the major ad platforms by which an ad campaign can be run to a group of individuals who have previously interacted with the advertiser in some way. With the current deprecation of 3rd-party cookies, this implies either that the individual has come directly from an ad to a platform run by the advertiser or that the individual has shared either personally identifying data or directly connected their account (i.e.\ their Facebook or Google account) with the advertiser.}. This implies that the ads show up in participants' real news feed, bidding in real ad auctions and mixed with other real ads, advertised by an entity that has no apparent connection to the surveying entity itself. To our knowledge, this is the first example of this design in the literature and we believe it can be useful. Additionally, we offer an open source software tool, Virtual Lab, which can be used to facilitate such a study design (\cite{Rao2020}).
 
 
+% TODO: add description of virtual lab
 
-\section{Recruiting and Surveying on Facebook}
+% \section{Recruiting and Surveying on Facebook}
 
-We use an open-source platform called Virtual Lab (\cite{Rao2020}) to recruit respondents with Facebook advertising and interview them via chatbot on Facebook Messenger.
-
-Surveying via chatbot allows us to seamless follow up with respondents. 
+% We use an open-source platform, developed by the research team, called Virtual Lab to recruit respondents with Facebook advertising and interview them via chatbot on Facebook Messenger (\cite{Rao2020}).
 
 
 \section{Cluster Level Study}
@@ -114,22 +114,22 @@ Surveying via chatbot allows us to seamless follow up with respondents.
 
 \subsection{Procedure}
 
-Four states were set aside from the main campaign for impact evaluation: Uttar Pradesh, Odisha, (???), and (??). We removed capital districts entirely from the study, leaving us with ??? districts in the four states. Out of those districts, our goal was to select 80 for the study and recruit 20,000 people across those 80 districts, with 250 people per district. The 80 districts were selected for convenience: they would be the 80 districts in which it is cheapest to recruit participants on Facebook. Cost of recruitment on Facebook is driven  by many factors, but at the extreme it is primarily driven by lack of active population. It's important to note that this is, of course, a limitation: our study population does not reflect the entire state, it excludes some of the lesser connected and less populous districts.
+Four states were set aside from the main campaign for impact evaluation: Uttar Pradesh, Odisha, Jharkhand, and Chhattisgarh. We removed capital districts entirely from the study, leaving us with 152 districts in the four states. Out of those districts, our goal was to select 80 for the study and recruit 20,000 people across those 80 districts, with 250 people per district. The 80 districts were selected for convenience: they would be the 80 districts in which it is cheapest to recruit participants on Facebook. Cost of recruitment on Facebook is driven  by many factors, but at the extreme it is primarily driven by lack of active population. It's important to note that this is, of course, a limitation: our study population does not reflect the entire state, it excludes some of the lesser connected and less populous districts.
 
-That being said, there is still substantial variety both across and within districts. See ??? for descriptive statistics.
+% That being said, there is still substantial variety both across and within districts. See ??? for descriptive statistics.
 
-%% District-level descriptives
-% Balance stats here too?????????
+%% TODO: add district-level descriptives
 
-The selected districts were chosen by beginning recruitment in all ??? districts and progressively dropping the more expensive ones. Additionally, the initial data served to allow us to understand malaria incidence and identify characteristics of individuals at risk. Some interesting things popped out of this initial analysis:
+%% TODO add N number of districts
+The selected districts were chosen by beginning recruitment in all districts and progressively dropping the more expensive ones. Additionally, the initial data served to allow us to understand malaria incidence and identify characteristics of individuals at risk. Some interesting things popped out of this initial analysis:
 
-\paragraph{Odisha, with historically high malaria incidence, had very low incidence compared with the other states.} Inline with recent govermental data, we found that answers the question \textit{Have you, someone in your house, or any of your neighbors had malaria in the past 5 years?} were significantly less positive in Odisha, where only 6.7\% of respondenses were positive, as opposed to 19.4\%, 16.5\%, and 23.0\% in the other states. Additionally, in 11 out of 23 districts in Odisha, we found 0 incidents of malaria (N=???), and in only 5 districts was 5-year incidence above 10\%. Seeing these numbers, we decided to drop Odisha entirely from the study and choose our 80 districts from among the other states.
+%% TODO: add N=?? to the 0 incidences of malaria
+\paragraph{Odisha, with historically high malaria incidence, had very low incidence compared with the other states.} Inline with recent govermental data, we found that answers the question \textit{Have you, someone in your house, or any of your neighbors had malaria in the past 5 years?} were significantly less positive in Odisha, where only 6.7\% of respondenses were positive, as opposed to 19.4\%, 16.5\%, and 23.0\% in the other states. Additionally, in 11 out of 23 districts in Odisha, we found 0 incidents of malaria, and in only 5 districts was 5-year incidence above 10\%. Seeing these numbers, we decided to drop Odisha entirely from the study and choose our 80 districts from among the other states and their 123 districts.
 
 \paragraph{Historical malaria incidence is correlated with current incidence, but not perfectly.} We asked both whether respondents or anyone in their household had had malaria in the last 5 years as well as whether they had had malaria in the last 2 weeks. While historical incidence was correlated with current incidence (Pearson's $\rho = 0.12$ on individual level and $\rho = 0.50$ when comparing districts by their average), one might have expected this correlation to be higher. Malaria definitely moves and having up-to-date information is clearly important on targeting efforts.
 
 
-%% TODO: convert to risk ratio, logistic regressions
-%% Also add multiple levels of data to show change (< august > august)
+
 \paragraph{Dwelling type is the strongest individual predictor of current malaria incidence.} Respondents were asked which kind of house they live in: Kutcha (made of mud, tin, straw), Pucca (have cement/brick wall and floor), or Semi-pucca. This question showed the highest marginal correlation with 2-week malaria incidence ($\rho = -0.057$ coded as kutcha < semi-pucca < pucca) of any of the individual questions we asked (see Table \ref{tbl:baseline-corr}). Running a simple regression tree to find  good predictors of malaria incidence (figure \ref{fig:regression-tree}), we see that dwelling type is the most consistent predictor. It's correlated with education, distance from the nearest medical center, being unemployed, and caste. Dwelling type thus captures both poverty and rurality, as well as itself being a risk factor for malaria.
 
 \input{./tables/baseline-corr.tex}
@@ -149,11 +149,16 @@ The effect of this stratification can be seen in figure \ref{fig:recruitment}. I
 
 Another effect of stratifying recruitment, both by district and dwelling type, is that it changes the population that any average effects in our analysis estimate. Without stratification, effect estimates are valid for ``the population most likely to respond to recruitment ads on Facebook.'' With stratification, we create a synthetic population on which we estimate average and conditional average effects. This synthetic population is not out-of-the-box representative of any actual population in the real world and average effect estimates on this population cannot be naively interpreted as representing the average effect on any real-world population. By orthogonalizing variables (for example dwelling type) by stratifying them equally, however, the data is better suited to both estimating conditional effects and transporting to populations where such quantities (i.e.\ the percentage of people living in different dwelling types) are known.
 
-\subsection{Randomization}
 
-Districts were randomized via a matched pair design (\cite{ref}), where matching was performed based on the Mahalanobis distance across district level variables collected in the baseline survey: , , , , , .
+% TODO: Add randomization stuff!!!
 
-Pair assignment was rerandomized until balance across the measured variables was achieved.
+% \subsection{Randomization}
+
+% Districts were randomized via a matched pair design (\cite{ref}), where matching was performed based on the Mahalanobis distance across district level variables collected in the baseline survey: , , , , , .
+
+% Pair assignment was rerandomized until balance across the measured variables was achieved.
+
+% Balance stats here!!!
 
 
 \subsection{Data}
@@ -164,15 +169,13 @@ The study is performed in two ``rounds.'' In round 1, respondents are recruited 
 
 Round 1 respondents participate in a panel survey where they are invited to answer the same set of questions every 17 days between the time of recruitment until December 2020. These questions measure disease incidence (of malaria and fever), treatment seeking (in the case of disease), and preventative behaviors (\textit{did you sleep under a mosquito net last night?}). The number of ``waves'' answered by these respondents varies, depending on how quick they were to answer the invitation to take another survey, up to a maximum of 9 waves. The first wave (``baseline'') and last wave (``endline'') had additional questions. All respondents who at least completed the baseline, regardless of how many intermediate waves they completed, were invited to complete the endline survey on December 19the.
 
-Round 2 respondents participate in a cross-sectional survey where they are asked about disease incidence and treatment seeking behaviors. A subset of this group became part of the ``individual level study'' (section ???) and were later asked about behaviors after being individually treated with ads via remarketing.
+Round 2 respondents participate in a cross-sectional survey where they are asked about disease incidence and treatment seeking behaviors. A subset of this group became part of the ``individual level study'' (section \ref{individual-effect}) and were later asked about behaviors after being individually treated with ads via remarketing.
 
 
 %%% DESCRIPTIVE???
 
 % map plots of district-level variables and variation
-% Randomization procedure
 % map of districts and assignments
-% balance reports
 
 
 
@@ -185,7 +188,10 @@ logit(\pi_{ih}) &= \alpha + \sum_j \beta_j x_{jih} + u_h \\
 u_h &\sim \mathcal{N}(0, \sigma_B^2)
 \end{align*}
 
-Where $x_{jih}$ represent the value of covariate $j$ for individual $i$ in district $h$, where we include the district-level treatment indicator and, in some specifications, interactions and controls as covariates. This model allows each district ($h$) to have its own intercept ($u_h$) in addition to the common intercept ($\alpha$) under the assumption that the random intercepts follow a normal distribution with learned variance $\sigma_B$. As a robustness check, all models are additionally run with an alternative specification: OLS with cluster-robust standard errors, clustered at district level, and weighted by responses when the outcome is averaged over responses. The results are qualitatively similar, with point estimates from the OLS largely agreeing with calculated odds ratios from the binomial model and standard errors very comparable. A comparison and discussion is provided in appendix ???.
+Where $x_{jih}$ represent the value of covariate $j$ for individual $i$ in district $h$, where we include the district-level treatment indicator and, in some specifications, interactions and controls as covariates. This model allows each district ($h$) to have its own intercept ($u_h$) in addition to the common intercept ($\alpha$) under the assumption that the random intercepts follow a normal distribution with learned variance $\sigma_B$. As a robustness check, all models are additionally run with an alternative specification: OLS with cluster-robust standard errors, clustered at district level, and weighted by responses when the outcome is averaged over responses. The results are qualitatively similar, with point estimates from the OLS largely agreeing with calculated odds ratios from the binomial model and standard errors comparable.
+
+% TODO discuss OLS results
+% A comparison and discussion is provided in appendix ???.
 
 The data from the round 1 panel study is filtered to only contain answers after September 21st, approximately one month after the start of the advertising campaign. Only users who successfully completed at least 3 waves are considered.
 
@@ -238,7 +244,7 @@ Results are reported in table \ref{tbl:Treatment Seeking}. In general, our data 
 \input{./tables/Treatment Seeking.tex}
 
 
-\section{Individual Effect Study}
+\section{Individual Effect Study} \label{individual-effect}
 
 
 \subsection{Procedure}
@@ -247,7 +253,7 @@ Within the round 2 (cross section) data collection, we embedded an additional in
 
 To facilitate this design, data for the cross-sectional study was collected in two phases. In the first phase, demographic questions, as well as questions about fever and malaria incidence were asked, but no questions were asked about behavior (sleeping under a net, etc.). The second phase was collect between 3-12 weeks after the first phase.
 
-After the first phase, participants (N=?) were randomized into treatment and control groups, with rerandomization being used to ensure balance across gender, caste, education, dwelling-type, as well as the treatment assignment of their district in round 1 of the study. The treatment group (N=?) was then targeted via remarketing with ad campaign which was run, over the course of 2 weeks, exclusively targeting those individuals. ??? / ??? were reached by at least one ad and on average participants in this group saw ??? ads each over the course of 2 weeks.
+After the first phase, participants (N=4908) were randomized into treatment and control groups, with rerandomization being used to ensure balance across gender, caste, education, dwelling-type, as well as the treatment assignment of their district in round 1 of the study. The treatment group (N=2359) was then targeted via remarketing with ad campaign which was run, over the course of 2 weeks, exclusively targeting those individuals. 2,119 / 2359 were reached by at least one ad and participants in this group saw an average of 6.6 ads each over the course of 2 weeks.
 
 10 days after the end of the ad campaign, the second phase of the survey was sent to the respondents via Facebook Messenger. We consider only those respondents who answered both waves (N=1791).
 
@@ -303,6 +309,7 @@ There is a significant positive effect of the individual level treatment on the 
 \input{./tables/Sleeping Under Bednet - OLS.tex}
 
 \input{./tables/Sleeping Under Bednet (Individual Level) - OLS.tex}
+
 
 
 
