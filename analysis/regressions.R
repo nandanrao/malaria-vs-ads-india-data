@@ -208,19 +208,3 @@ for (name in names(ind_outcomes)) {
         dep.var.labels = names(ind_outcomes[[name]])
     )
 }
-
-
-get_or <- function(model, treated, baseline = c(), rnd = 4) {
-    coefs <- summary(model)$coefficients[, 1]
-
-    # TODO: add CI from SE's from summary...
-
-    i <- coefs[["(Intercept)"]]
-    c <- sum(coefs[baseline])
-    t <- sum(coefs[treated])
-
-    tp <- plogis(i + c + t)
-    basep <- plogis(i + c)
-
-    list(or = tp / basep, base = round(basep, rnd), treated = round(tp, rnd))
-}
