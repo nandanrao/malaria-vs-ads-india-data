@@ -28,7 +28,7 @@ specs <- list(
     spec("treatment", fn = puccaize)
 )
 
-panel_oct <- agg_panel(full_panel, "2020-08-01", agg_to = "2020-08-23")
+panel_oct <- agg_panel(full_panel, "2020-09-21", agg_to = "2021-01-31")
 panel_with_fever <- agg_panel(full_panel, "2020-09-21", "seekhelpfever")
 hasbednet_panel <- filter(panel_oct, TRUE & hasmosquitonet)
 

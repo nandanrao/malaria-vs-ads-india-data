@@ -73,7 +73,7 @@ mixed_effects <- function(df, response, terms, weights = NULL, family = "binomia
     terms <- c("(1 | stratumid)", terms)
     formula <- reformulate(terms, response = response)
     model <- glmer(formula, df, weights = weights, family = family)
-    cluster_se("stratumid", model)
+    model
 }
 
 logistic_regression <- function(df, response, terms, weights = NULL) {
