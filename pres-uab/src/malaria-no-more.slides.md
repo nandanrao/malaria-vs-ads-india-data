@@ -416,8 +416,9 @@ $$
 :::
 
 ::: col
-**Marginal effect (pucca)**
+Marginal effects
 
+**R1 (pucca)**
 **Self:** 61.1\% > 65\%
 **HH:** 61.2\% > 67.6\%
 :::
@@ -443,13 +444,11 @@ $$
 :::
 
 ::: col
-Round 2 results (not sig.):
+Marginal effects (not sig.)
 
-**Marginal effect (pucca)**
-4.6\% > 3.7\%
+**R2 (pucca)**
+4.6\% > 3.7\% (0.81 OR)
 
-**Odds ratio (pucca)**
-0.81
 :::
 
 ::::
@@ -471,6 +470,7 @@ If they answered yes to either:
 ---
 
 ## Results
+<!-- _class: small-text -->
 
 :::: columns
 
@@ -480,10 +480,13 @@ If they answered yes to either:
 
 ::: col
 
-Round 1 (non-pucca)
+Marginal effects (not sig.)
 
-**Marginal effect**
-84\% > 89\%
+**R1 (non-pucca)**
+86\% > 91\%
+
+**R2 (non-pucca)**
+95\% > 97\%
 
 :::
 
@@ -540,7 +543,7 @@ Real marketing campaign (real auctions, real $$$)
 :::: columns
 
 ::: col
-![width:560px](../../tables/png/sleeping-under-bednet-(individual-level)---ols.png)
+![width:650px](../../tables/png/sleeping-under-bednet-(individual-level)---ols-(subset).png)
 :::
 
 ::: col
@@ -568,7 +571,13 @@ The ad campaign seemed to have population-level impact on one subgroup (pucca)
 
 ## Conclusions
 
+Policies and interventions affect subpopulations differently.
 
+Measuring effects on different populations can be hard.
+
+Digital advertising can be used for recruitment and help via microtargeting.
+
+If we stratified by dwelling to recruit, can we do the same in the campaign itself?
 
 
 ---

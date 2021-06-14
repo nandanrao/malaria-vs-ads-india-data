@@ -40,6 +40,7 @@ spec <- function(..., fn = identity) {
 }
 
 puccaize <- function(df) df %>% filter(pucca == 1)
+nonpuccaize <- function(df) df %>% filter(pucca != 1)
 
 specs <- list(
     spec("treatment"),
@@ -222,6 +223,59 @@ for (name in names(ind_outcomes)) {
         name,
         add.lines = lines,
         omit = c("Constant", ind_controls),
+        dep.var.caption = name,
+        dep.var.labels = names(ind_outcomes[[name]])
+    )
+}
+
+#######################################################################
+## Mini Individual Tables
+#######################################################################
+
+
+ind_controls <- c(
+    "generalcaste",
+    "university",
+    "female",
+    "student",
+    "pregnantwoman",
+    "scaled_log_age",
+    "scaled_log_familymembers",
+    "scaled_distancemedicalcenter"
+)
+
+ind_specs <- list(
+    c("ind_treatment"),
+    c("ind_treatment + treatment", ind_controls),
+    c("ind_treatment*pucca + semipucca + treatment", ind_controls),
+    c("ind_treatment + treatment", "admalaria", ind_controls)
+)
+
+lines <- list(c("Controls", map_chr(ind_specs, ~ ifelse("generalcaste" %in% .x, "Yes", "No"))))
+
+ind_outcomes <- list(
+    `Sleeping Under Bednet (Individual Level) - Logistic Regression (Subset)` = list(
+        `Slept Under Net` =
+            map(ind_specs, ~ glm(reformulate(.x, "sleepundernet"),
+                filter(individual_effect, TRUE & hasmosquitonet),
+                family = "binomial"
+            ))
+    ),
+    `Sleeping Under Bednet (Individual Level) - OLS (Subset)` = list(
+        `Slept Under Net` =
+            map(ind_specs, ~ lm(
+                reformulate(.x, "sleepundernet"),
+                filter(individual_effect, TRUE & hasmosquitonet)
+            ))
+    )
+)
+
+for (name in names(ind_outcomes)) {
+    write_table(
+        flatten(ind_outcomes[[name]]),
+        name,
+        add.lines = lines,
+        omit = c("Constant", ind_controls, "semipucca"),
         dep.var.caption = name,
         dep.var.labels = names(ind_outcomes[[name]])
     )
