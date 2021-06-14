@@ -159,3 +159,26 @@ xsection %>%
     ggplot(aes(y = dif, x = factor(treatment), fill = factor(treatment), color = factor(treatment))) +
     geom_jitter(width = 0.3) +
     geom_boxplot(alpha = 0.3)
+
+
+
+
+
+
+
+
+
+
+risk <- baseline %>%
+    group_by(stratumid) %>%
+    summarize(m = mean(malaria2weeks)) %>%
+    mutate(district_risk = case_when(
+        m > 0.02 ~ "high",
+        TRUE ~ "low"
+    )) %>%
+    select(stratumid, district_risk)
+
+baseline %>%
+    inner_join(risk, on = "stratumid") %>%
+    group_by(dwelling, district_risk) %>%
+    summarize(across(c("malaria5year", "malaria2weeks"), ~ mean(.x, na.rm = TRUE)))

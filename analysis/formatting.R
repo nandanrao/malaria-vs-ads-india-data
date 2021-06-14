@@ -15,7 +15,8 @@ binary_covariate_confs <- list(
     bin_conf("caste", c("General", "Other"), "forwardcaste"),
     bin_conf("caste", c("OBC", "SC/Dalit", "ST"), "backwardcaste"),
     bin_conf("hasmosquitonet", "Yes"),
-    bin_conf("hasairconditioning", "Yes")
+    bin_conf("hasairconditioning", "Yes"),
+    bin_conf("admalaria", "Yes")
 )
 
 binary_outcome_confs <- list(
@@ -31,7 +32,6 @@ binary_outcome_confs <- list(
     bin_conf("timeseekhelpmalaria", "More than 2 days", "malariaslowhelp"),
     bin_conf("sleepundernet", "Yes"),
     bin_conf("longsleeves", "Yes"),
-    bin_conf("admalaria", "Yes"),
     bin_conf("worriedmalaria", "Not at all worried", "notworriedmalaria")
 )
 

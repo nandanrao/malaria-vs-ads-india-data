@@ -1,6 +1,25 @@
 source("./data.R")
 
 
+# TODO: Test to see if panel vs. individual level marginal differences in probability
+# of slepeing under a net (young men less likely)
+
+# TODO: Check for interactions in the admalaria in the panel
+# -- see that it's the puccas seeing the ads that made the difference
+
+# TODO: add to tex that Sleeping Under Bednet is conditional on having bednet
+#
+# TODO: maybe some people bought a bednet, look for those who sleep under
+# bednet even though they don't have it.
+#
+# Look at those who say they dont' have one
+#
+# TODO: add "conditonal on fever"
+
+# TODO: add in descriptives - kutcha less likely to seek treatment, more like to sleep under bednet
+
+# TODO: add time effects
+
 
 #######################################################################
 ## Cluster level
@@ -155,6 +174,7 @@ for (name in names(outcomes)) {
 #######################################################################
 ## Individual Level
 #######################################################################
+
 
 ind_controls <- c(
     "generalcaste",
