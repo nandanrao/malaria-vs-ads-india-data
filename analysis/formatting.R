@@ -32,7 +32,8 @@ binary_outcome_confs <- list(
     bin_conf("timeseekhelpmalaria", "More than 2 days", "malariaslowhelp"),
     bin_conf("sleepundernet", "Yes"),
     bin_conf("longsleeves", "Yes"),
-    bin_conf("worriedmalaria", "Not at all worried", "notworriedmalaria")
+    bin_conf("worriedmalaria", "Not at all worried", "notworriedmalaria"),
+    bin_conf("treatmentseeking", "I would seek treatment right away", "hypotheticalfeverquickhelp")
 )
 
 binary_confs <- c(binary_covariate_confs, binary_outcome_confs)

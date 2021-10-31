@@ -214,6 +214,20 @@ ind_outcomes <- list(
                 reformulate(.x, "sleepundernet"),
                 filter(individual_effect, TRUE & hasmosquitonet)
             ))
+    ),
+    `Long Sleeve Clothing (Individual Level) - OLS` = list(
+        `Wore Long Sleeves` =
+            map(ind_specs, ~ lm(
+                reformulate(.x, "longsleeves"),
+                filter(individual_effect)
+            ))
+    ),
+    `Hypothetical Treatment Seeking (Individual Level) - OLS` = list(
+        `Wore Long Sleeves` =
+            map(ind_specs, ~ lm(
+                reformulate(.x, "hypotheticalfeverquickhelp"),
+                filter(individual_effect)
+            ))
     )
 )
 
@@ -248,7 +262,7 @@ ind_specs <- list(
     c("ind_treatment"),
     c("ind_treatment + treatment", ind_controls),
     c("ind_treatment*pucca + semipucca + treatment", ind_controls),
-    c("ind_treatment + treatment", "admalaria", ind_controls)
+    c("ind_treatment", ind_controls, fn = puccaize)
 )
 
 lines <- list(c("Controls", map_chr(ind_specs, ~ ifelse("generalcaste" %in% .x, "Yes", "No"))))
@@ -265,6 +279,13 @@ ind_outcomes <- list(
         `Slept Under Net` =
             map(ind_specs, ~ lm(
                 reformulate(.x, "sleepundernet"),
+                filter(individual_effect, TRUE & hasmosquitonet)
+            ))
+    ),
+    `Long Sleeve Clothing (Individual Level) - OLS` = list(
+        `Wore Long Sleeves` =
+            map(ind_specs, ~ lm(
+                reformulate(.x, "longsleeves"),
                 filter(individual_effect, TRUE & hasmosquitonet)
             ))
     )
