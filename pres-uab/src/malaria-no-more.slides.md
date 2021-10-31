@@ -6,158 +6,174 @@ paginate: true
 <!-- _class: lead -->
 
 Nandan Rao, Dante Donati, Victor Orozco-Olvera
-Advisor: Caterina Calsamiglia
-Tutor: Francesc Trillas
-June 2021
+October 2021
 
 ---
 
-## Outline
 
-1. Overview
-2. Background & Contribution
-2. Cluster Level Design/Results
-2. Individual Level Design/Results
-3. Conclusions
+## The Context: A
+
+
+:::: columns
+
+::: col
+You have an intervention. It's digital. It can be:
+
+1. An advertising campaign.
+2. Something that uses an ad campaign as a distribution channel.
+:::
+
+::: col
+![width:450px](img/mnm-phone-cropped.jpg)
+:::
+
+::::
 
 ---
 
-## Research Question
 
-Smartphone growth and internet access is expanding.
 
-However, it is least expansive in poor, rural areas.
+## The Context: B
 
-Malaria disproportionately affects those in poor, rural areas.
 
-Can Facebook ads help against malaria?
+:::: columns
+
+::: col
+You want it to impact something other than online behavior. This can be:
+
+1. Knowledge
+2. Attitudes
+3. Behavior
+:::
+
+::: col
+![width:450px](img/mnm-phone-cropped.jpg)
+:::
+
+::::
 
 ---
 
-## Who?
+
+## The Context: C
+
+
+:::: columns
+
+::: col
+Your outcomes of interest can be self-reported in a survey.
+
+:::
+
+::: col
+![width:450px](img/mnm-phone-cropped.jpg)
+:::
+
+::::
+
+---
+
+## Example: A Parenting App
+
+You have an app that helps educate parents with new-born children. The app promotes breast feeding, among other things.
+
+You can ask people if they are breast feeding their baby (behavior, measurable via self report)
+
+You can advertise your app online.
+
+---
+
+
+## Example: An Anti-Malaria Campaign
+
+You want to prevent malaria by encouraging safe behavior, such as using mosquito nets.
+
+You can ask people if they slept under a mosquito net.
+
+You can create an online ad campaign to encourage people to sleep under mosquito nets.
+
+---
+
+## Malaria No More Campaign Evaluation
 
 A collaboration between Facebook's Campaigns for a Healthier World, Upswell, Malaria No More, and the World Bank.
 
 Campaign goals: malaria awareness, protective behavior, and treatment seeking.
 
-We (researchers) get 3 states in India in which we can randomize campaign application by geography.
+---
+
+## Malaria No More Campaign
+:::: columns
+
+::: col
+![width:300px](img/mnm-ad-1.png)
+
+:::
+
+::: col
+![width:300px](img/mnm-ad-2.png)
+:::
+
+::: col
+![width:300px](img/mnm-ad-3.png)
+:::
+::::
 
 ---
 
-## Study Design (1000m view)
-
-**Cluster level:**
-80 districts in which we collect surveys. 40 treated, 40 control.
-Campaign run by ad team (2nd half of 2020)
-Measure population-level effects.
-
-**Individual level:**
-1791 individuals surveyed (Q1 2021)
-Direct advertising via remarketing.
-Measure individual-level effects.
-
----
-
-
-<!-- ## Study Design (1000m view) -->
-
-<!-- Stratify by dwelling type: -->
-
-<!-- **Kutcha:** Mud/Straw/Tin -->
-
-<!-- **Pucca:** Concrete/Brick -->
-
-<!-- (There is also semi-pucca) -->
-
-<!-- --- -->
-
-
-## Findings
-
-**Preventative behavior (sleeping under mosquito net):**
-
-1. Population level effects for those who live in concrete/brick dwelling type.
-2. Individual level effects for those who live in any dwelling type.
-
-**Malaria Incidence (self-reported):**
-3. Suggestive evidence for heterogeneous effects across dwelling type.
+# Do the ads work?
+<!-- _class: lead -->
 
 
 ---
 
-#
-<!-- _class: centered -->
+## An Ideal design
 
-### Background \& Contribution
+Randomize a population into treatment/control conditions.
 
----
+Show the treated people ads (for a couple weeks)
 
-## Background \& Contribution
-
-1. Ad campaigns for public health outcomes in low- and middle-income countries.
-2. Evaluating behavior change in (digital) social marketing campaigns.
-
+Know if treated people are more likely to sleep under mosquito nets.
 
 ---
 
-## Ads for public health in LMICs
+## An Ideal (commercial) design
 
-Some evidence for reproductive health in Pakistan, attitudes towards smoking in Brazil, and preventative behaviors related to cancer screening in Thailand.
+Randomize a population into treatment/control conditions.
 
-The latter being the only full-scale RCT, flyers + in-person program.
+Show the treated people ads (for a couple weeks).
 
-There have been cluster-randomized trials in high-income countries for traditional media campaigns. Any for digital campaigns?
-
-
----
-
-## Evaluating behavior change
-
-Social marketing focuses on the use of marketing tools for behavior change.
-
-Review of social media social marketing campaigns by Shawky et. al. in 2019[^Shawky2019] shows:
-
-1. 24 studies measured effectiveness
-2. 24/24 measured "on-platform" engagement
-3. 12/24 measured "off-platform" conversions
-4. 0/24(?) measured offline behavior change
-
-[^Shawky2019]: Sara Shawky et al. “Using social media to create engagement: a social marketin review”. In: Journal of Social Marketing 9.2 (2019).
+Know if treated people are more likely to **buy your shoes.**
 
 ---
 
-## How marketing tools work
 
-Provide measurements for "on-platform" results.
+## An (almost) Ideal design
 
-Provide tools (SDKs) for "off-platform" results.
+Recruit some study participants online.
 
-All results aggregated to ad platform, where they own the data and provide tools.
+Tell them you're doing a survey. Ask them some questions, then tell them you'll ask them more questions in a couple of weeks.
 
-Companies generally interested in "on-platform" engagement as a means to "off-platform" engagement which is the end goal.
+Sneakily advertise to them.
 
-Result: measuring engagement easy due to wealth of tools.
+Ask them if they slept under a bednet last night.
 
----
-
-## Lab studies
-
-To get around this limitation, behavioral researchers (and marketing professionals) often study the effects of information or ad content in a "lab" setting.
-
-Public relations / market research companies offer pools of paid respondents and tools to show ads to them.
-
-Downsides: Participants are conscious of the relationship between the ad and the questions. Forms part of the same study.
-
+See if the treatment group is more likely to **report** sleeping under mosquito nets.
 
 ---
 
-## Our contribution
 
-We contribute two study designs and an open source software tool (Virtual Lab) to this literature:
+## An (almost) Ideal design
 
-1. Geographic (cluster-level) randomization with stratified survey respondents recruited via digital ad platforms.
+Recruit some study participants online **via Facebook**.
 
-2. Individual-level randomization and realistic measurement of ad effect with remarketing.
+Tell them you're doing a survey. Ask them some questions, then tell them you'll ask them more questions in a couple of weeks.
+
+Sneakily advertise to them **via Facebook**.
+
+Ask them if they slept under a bednet last night.
+
+See if the treatment group is more likely to **report** sleeping under mosquito nets.
 
 ---
 
@@ -173,40 +189,6 @@ Interaction means interacting with a previous ad or connecting their account (i.
 
 
 ---
-
-## Virtual Lab
-
-Virtual Lab is an open-source platform for performing surveys and experiments within digital ad platforms.
-
-https://vlab.digital
-* Uses advertiser APIs to optimize recruitment.
-* Chatbot survey platform (+ web survey integration coming).
-* Payment/incentive integration with mobile recharges.
-* Allows retargeting for ad experiments.
-
----
-
-
-#
-<!-- _class: centered -->
-
-### Study Design (Cluster Level)
-
----
-
-## Stratification
-
-Are Facebook ads effective in the fight against malaria?
-
-(concern) Aren't those most affected by Facebook ads least affected by malaria?
-
-(solution) Stratify:
-
-1. Let's determine who malaria affects the most and the least.
-2. Let's measure effects of the campaign on both groups.
-
----
-
 
 ## Recruiting
 
@@ -227,8 +209,8 @@ Use Virtual Lab to create ad sets for each stratum and optimize spend across ad 
 
 ::::
 
-
 ---
+
 
 ## Surveying
 
@@ -251,14 +233,81 @@ Chatbot allows for seamless follow ups / experience sampling.
 
 ---
 
-## Timeline
+## Real ads. Real timelines.
 
-* **July 2020:** Launch baseline of "round 1" panel survey.
-* **September 2020:** Launch country-wide Malaria No More ad campaign
-* **November 2020:** Finish country-wide Malaria No More ad campaign
-* **December 2020:** Finish "round 1" panel survey
-* **January 2020:** Launch "round 2" cross-section survey.
-* **March 2020:** Finish "round 2" cross-section survey.
+![width:825px](img/mnm-phone-edited.jpg)
+
+---
+
+
+# So do the ads work?
+<!-- _class: lead -->
+
+---
+
+
+## Individual Level Results
+
+:::: columns
+
+::: col
+![width:650px](../../tables/png/sleeping-under-bednet-(individual-level)---ols-(subset).png)
+:::
+
+::: col
+
+**Marginal effect**
+69\% > 75\%
+
+No heterogeneity.
+
+:::
+
+::::
+
+---
+
+
+## Individual Level Results
+
+:::: columns
+
+::: col
+![width:525px](../../tables/png/long-sleeve-clothing-(individual-level)---ols.png)
+:::
+
+::: col
+
+We also asked:
+
+_"Thinking about yesterday, did you/your family use long-sleeve clothing to prevent mosquito bites?"_
+
+There were no ads specifically mentioning long sleeves.
+
+
+:::
+
+::::
+
+---
+
+
+# So who do the ads work on?
+<!-- _class: lead -->
+
+---
+
+
+## Stratification
+
+Are Facebook ads effective in the fight against malaria?
+
+(concern) Aren't those most affected by Facebook ads least affected by malaria?
+
+(solution) Stratify:
+
+1. Let's determine who malaria affects the most and the least.
+2. Let's measure effects of the campaign on both groups.
 
 ---
 
@@ -268,19 +317,6 @@ Chatbot allows for seamless follow ups / experience sampling.
 
 ---
 
-
-## Baseline insights - Trees
-
-:::: columns
-::: col
-![width:500px](img/malaria2weeks.svg)
-:::
-::: col
-![width:500px](img/malaria5year.svg)
-:::
-::::
-
----
 
 ## What is Dwelling???
 
@@ -292,23 +328,60 @@ Respondents were asked which kind of house they live in:
 
 ---
 
-## Optimizing recruitment for dwelling
 
-We stratify all recruitment by dwelling (in addition to district).
-
-This allows us to do subgroup analysis by dwelling, which is a simple, transparent way to split respondents by a proxy for malaria risk.
-
-How to recruit by dwelling type? Lookalike audience.
-
-Leads to 160 strata.
+# Ok, how do you stratify on kutcha?
+<!-- _class: lead -->
 
 ---
+
+## Ad Optimization
+
+Major ad platforms offer a variety of "optimization" tools.
+
+The goal of these tools is to ensure that your ads go to those who are most likely to _____ (_conversion event_).
+
+One of these tools, on Facebook, is known as "Lookalike Audience".
+
+---
+
+
+## Lookalike Audiences
+
+One-class classification problem.
+
+You give them a set of people and pick a percentage between 1%-20%.
+
+They give you an audience that is 1-20% of the population that is "most like" the set of people you gave them.
+
+Kutcha lookalike!
+
+---
+
 
 ## Optimizing recruitment for dwelling
 
 ![width:1000px](../../figures/recruitment.png)
 
 ---
+
+## Virtual Lab
+
+Virtual Lab is an open-source platform for performing surveys and experiments within digital ad platforms.
+
+https://vlab.digital
+* Uses advertiser APIs to optimize recruitment.
+* Chatbot survey platform (+ web survey integration coming).
+* Payment/incentive integration with mobile recharges.
+* Allows retargeting for ad experiments.
+
+---
+
+
+# So does an ad campaign work at scale?
+<!-- _class: lead -->
+
+---
+
 
 ## Malaria No More Campaign
 
@@ -331,7 +404,9 @@ September - November 2020.
 :::
 ::::
 
+
 ---
+
 
 
 ## Survey Recruitment Campaign
@@ -355,6 +430,31 @@ January - March 2020.
 ::::
 
 ---
+
+
+## Stratify, stratify, stratify
+
+160 strata!
+
+Use Virtual Lab to optimize spend dynamically.
+
+160 adsets!
+
+Most expensive districts > 50x that of cheap districts
+
+---
+
+## Timeline
+
+* **July 2020:** Launch baseline of "round 1" panel survey.
+* **September 2020:** Launch country-wide Malaria No More ad campaign
+* **November 2020:** Finish country-wide Malaria No More ad campaign
+* **December 2020:** Finish "round 1" panel survey
+* **January 2020:** Launch "round 2" cross-section survey.
+* **March 2020:** Finish "round 2" cross-section survey.
+
+---
+
 
 #
 <!-- _class: centered -->
@@ -494,70 +594,6 @@ Marginal effects (not sig.)
 
 ---
 
-#
-<!-- _class: centered -->
-
-### Individual Level Design/Results
-
----
-
-## Design
-
-
-* Data for round 2 cross section collected in 2 waves, with the second wave collected 3-12 weeks after the first phase.
-
-* After first phase, participants (N=4908) randomized into treatment/control groups (balanced across gender, caste, education, dwelling-type, 2020 treatment assignment).
-
-* Treatment group targeted via remarketing. 2 weeks. 6.6 ads each.
-
-* 10 days later, they were asked follow up questions.
-
-
----
-
-
-## Remarketing
-<!-- _class: small-text -->
-
-:::: columns
-
-::: col
-
-The survey was conducted via a page named "Global Insights"
-
-The marketing campaign was conducted from the Malaria No More India page.
-
-Real marketing campaign (real auctions, real $$$)
-
-:::
-::: col
-
-![width:720px](../../figures/mnm-phone-edited.jpg)
-:::
-::::
-
----
-
-## Results
-
-:::: columns
-
-::: col
-![width:650px](../../tables/png/sleeping-under-bednet-(individual-level)---ols-(subset).png)
-:::
-
-::: col
-
-**Marginal effect**
-69\% > 75\%
-
-No heterogeneity.
-
-:::
-
-::::
-
----
 
 ## Conclusions
 
