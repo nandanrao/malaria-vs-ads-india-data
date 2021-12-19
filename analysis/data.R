@@ -21,7 +21,8 @@ xsection <- read_csv("data/final/regression-data/xsection.csv") %>%
         "cluster_population",
         "cluster_CPM",
         "cluster_CTR",
-    ), ~ scale(log(.x))))
+    ), ~ scale(log(.x)))) %>%
+    filter(stratumid != "ff099f99") # Balrampur was accidentally in two states
 
 
 individual_effect <- read_csv("data/final/regression-data/individual.csv") %>%
@@ -51,7 +52,8 @@ full_panel <- read_csv("data/final/regression-data/panel.csv") %>%
         c("membersbednet"),
         ~ capped_percentage(.x, familymembers),
         .names = "perc_{.col}"
-    ))
+    ))  %>%
+    filter(stratumid != "ff099f99") # Balrampur was accidentally in two states
 
 
 baseline <- full_panel %>%
