@@ -1,0 +1,24 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{9}{c}}
+\hline\hline
+                &\multicolumn{3}{c}{Overall incidence}                   &\multicolumn{3}{c}{Urban incidence}                     &\multicolumn{3}{c}{Rural incidence}                     \\\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}
+                &      (1)         &      (2)         &      (3)         &      (4)         &      (5)         &      (6)         &      (7)         &      (8)         &      (9)         \\
+\hline
+Treated*Post    &    0.001         &    0.001         &    0.001         &   -0.013\sym{**} &   -0.013\sym{**} &   -0.013\sym{**} &    0.003         &    0.003         &    0.003         \\
+                &  (0.003)         &  (0.003)         &  (0.003)         &  (0.006)         &  (0.006)         &  (0.005)         &  (0.003)         &  (0.003)         &  (0.003)         \\
+Treated         &    0.002         &    0.002         &                  &    0.007         &    0.007         &                  &    0.001         &    0.000         &                  \\
+                &  (0.003)         &  (0.003)         &                  &  (0.007)         &  (0.006)         &                  &  (0.004)         &  (0.004)         &                  \\
+Month and year FE&$\checkmark$         &$\checkmark$         &$\checkmark$         &$\checkmark$         &$\checkmark$         &$\checkmark$         &$\checkmark$         &$\checkmark$         &$\checkmark$         \\
+District FE     &                  &                  &$\checkmark$         &                  &                  &$\checkmark$         &                  &                  &$\checkmark$         \\
+Controls        &                  &$\checkmark$         &                  &                  &$\checkmark$         &                  &                  &$\checkmark$         &                  \\
+\hline
+Observations    &\num{1631}         &\num{1631}         &\num{1631}         &\num{1209}         &\num{1209}         &\num{1206}         &\num{1611}         &\num{1611}         &\num{1611}         \\
+Adj. R-squared  &    0.018         &    0.037         &    0.230         &    0.017         &    0.095         &    0.260         &    0.009         &    0.015         &    0.202         \\
+Baseline Mean   &    0.012         &    0.012         &    0.012         &    0.017         &    0.017         &    0.017         &    0.012         &    0.012         &    0.012         \\
+Baseline SD     &    0.027         &    0.027         &    0.027         &    0.045         &    0.045         &    0.046         &    0.028         &    0.028         &    0.028         \\
+\hline\hline
+\multicolumn{10}{l}{\footnotesize Standard errors are clustered at the district level. The panel includes observations between September 2019 and May 2021. Post takes value 1 after August 2020, i.e. when the Facebook campaign started. Controls include: (log) district population, shares of respondents living in kutcha and pucca dwellings, share of respondents with university degree, 5-year malaria prevalence, share of respondents sleeping under mosquito nets. Source: Health Management Information System.}\\
+\multicolumn{10}{l}{\footnotesize \sym{*} \(p<0.1\), \sym{**} \(p<0.05\), \sym{***} \(p<0.01\)}\\
+\end{tabular}
+}
